@@ -1,10 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
+import books from './books';
+import Book from './Book';
 
-class App extends Component {
-  render() {
-    return <div>hello</div>;
-  }
-}
+import "./index.css";
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+const BookList = () => {
+  return (
+    <section className="book-list">
+      {books.map((book) => (
+        <Book key={book.id} {...book} />
+      ))}
+
+      {/* {books.map((book) => (
+        <Book key={book.id} book={book} />
+      ))} */}
+    </section>
+  );
+};
+
+ReactDOM.render(<BookList />, document.querySelector("#root"));
